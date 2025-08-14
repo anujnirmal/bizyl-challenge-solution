@@ -1,4 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jobController = require('../controllers/jobController');
 
-router.post('/jobs', asyncHandler(authController.loginWithGoogleId));
+router.get('/', asyncHandler(jobController.getJobs));
+router.post('/', asyncHandler(jobController.addJobs));
