@@ -17,7 +17,7 @@ const JobList = () => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        fetch('https://bizyl-challenge-solution.onrender.com/api/v1/jobs')
+        fetch('http://localhost:8080/api/v1/jobs')
             .then((res) => res.json())
             .then((data) => {
                 setJobs(data?.data);
