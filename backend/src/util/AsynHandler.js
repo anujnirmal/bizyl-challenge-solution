@@ -4,7 +4,7 @@ exports.asyncHandler = (fn) => async (req, res, next) => {
     try {
         await fn(req, res, next);
     } catch (error) {
-        logger.error(error);
+        console.error(error);
         const statusCode = error.code || error.statusCode || 500;
         return res
             .status(statusCode)

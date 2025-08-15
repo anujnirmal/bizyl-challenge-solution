@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { asyncHandler } = require('./src/utils/AsyncHandler.js');
-
-require('dotenv').config();
+const { asyncHandler } = require('./src/util/AsynHandler.js');
 
 const app = express();
 
@@ -25,5 +23,5 @@ const jobRoute = require('./src/routes/jobRoute.js');
 app.use('/api/v1/jobs', jobRoute);
 
 app.listen(PORT, () => {
-    logger.info(`${ENV} :  Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
