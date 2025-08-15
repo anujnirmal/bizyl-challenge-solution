@@ -15,10 +15,8 @@ const JobList = () => {
     const [jobFilter, setJobFilter] = useState('fullTime');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    // TODO: Add filter state for job type
 
     useEffect(() => {
-        // TODO: Optimize API
         fetch('http://localhost:8080/api/v1/jobs')
             .then((res) => res.json())
             .then((data) => {
