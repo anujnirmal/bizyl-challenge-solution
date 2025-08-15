@@ -142,3 +142,49 @@ By default:
 -   Implement caching for get routes
 
 ---
+
+# Git Workflow
+
+## Branching Strategy
+
+-   **main**: Production-ready code
+-   **changes**: Development before merging into `main`
+
+## Commit Message Rule
+
+-   Use **present tense** for commit messages  
+    Examples:  
+    ✅ Add job listing filter by salary  
+    ✅ Fix bug in user authentication  
+    ✅ Update README setup instructions
+
+## Steps to Push Changes to Main
+
+1. **Switch to changes branch & pull latest**
+
+    ```bash
+    git checkout changes
+    git pull origin changes
+    ```
+
+2. **Make changes**  
+   Stage & commit:
+
+    ```bash
+    git add .
+    git commit -m "Describe change in present tense"
+    ```
+
+3. **Push to changes**
+
+    ```bash
+    git push origin changes
+    ```
+
+4. **Merge into main**
+    ```bash
+    git checkout main
+    git pull origin main
+    git merge changes
+    git push origin main
+    ```

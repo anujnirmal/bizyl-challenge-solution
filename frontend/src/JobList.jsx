@@ -53,7 +53,7 @@ const JobList = () => {
                 {jobs
                     .filter((job) => job.type === jobFilter)
                     .map((job) => (
-                        <JobCard job={job} jobTypes={jobTypes} />
+                        <JobCard key={job.id} job={job} jobTypes={jobTypes} />
                     ))}
             </div>
         </div>
