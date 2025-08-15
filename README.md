@@ -136,12 +136,54 @@ By default:
 -   Add unit and integration tests.
 -   Implement CI/CD pipeline.
 -   Containerize the app with Docker.
--   Add authentication and authorization specially if we add job application tracking.
+-   Add authentication and authorization specially if we add job application tracking & adding of new Jobs.
 -   Building Frontend and Backend with zero trust policy for each other, as in Frontend validates all the data from backend and vice versa
 -   Improve error handling and logging, implment centralized logging using winston and even send logs to cloudwatch or an http server.
 -   Implement caching for get routes
+-   Create CRUD Interface for th Job Listing
 
 ---
+
+# Create Job API
+
+**Endpoint:**  
+`POST http://localhost:8080/api/v1/jobs`
+
+## Request Body
+
+```json
+{
+    "title": "Front Front Developer",
+    "type": "remote1",
+    "description": "Lorem Ipsum",
+    "salary": 14000,
+    "postedDate": "2025-07-02"
+}
+```
+
+# Get All Jobs API
+
+**Endpoint:**  
+`GET http://localhost:8080/api/v1/jobs`
+
+## Response
+
+```json
+{
+    "data": [
+        {
+            "id": 4,
+            "title": "Front Front Developer",
+            "type": "remote",
+            "description": "Lorem Ipsum",
+            "salary": 14000,
+            "postedDate": "2025-07-02"
+        }
+    ],
+    "message": "success",
+    "success": false
+}
+```
 
 # Git Workflow
 
@@ -152,10 +194,10 @@ By default:
 
 ## Commit Message Rule
 
--   Use **present tense** for commit messages  
-    Examples:  
-    ✅ Add job listing filter by salary  
-    ✅ Fix bug in user authentication  
+-   Use **present tense** for commit messages
+    Examples:
+    ✅ Add job listing filter by salary
+    ✅ Fix bug in user authentication
     ✅ Update README setup instructions
 
 ## Steps to Push Changes to Main
@@ -167,7 +209,7 @@ By default:
     git pull origin changes
     ```
 
-2. **Make changes**  
+2. **Make changes**
    Stage & commit:
 
     ```bash
@@ -188,3 +230,7 @@ By default:
     git merge changes
     git push origin main
     ```
+
+```
+
+```
