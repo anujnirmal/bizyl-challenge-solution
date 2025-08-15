@@ -2,9 +2,17 @@
 // Sanitized for Bizyl Tech Challenge
 
 import React, { useEffect, useState } from 'react';
+import JobCard from './Components/JobCard';
+
+const jobTypes = {
+    fullTime: 'Full Time',
+    partTime: 'Part Time',
+    remote: 'Remote',
+};
 
 const JobList = () => {
     const [jobs, setJobs] = useState([]);
+    const [jobFilter, setJobFilter] = useState('fullTime');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     // TODO: Add filter state for job type
@@ -14,7 +22,7 @@ const JobList = () => {
         fetch('http://localhost:8080/api/v1/jobs')
             .then((res) => res.json())
             .then((data) => {
-                setJobs(data);
+                setJobs(data?.data);
             })
             .catch(() => {
                 setError(true);
@@ -25,19 +33,31 @@ const JobList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Job Board</h2>
-            {/* TODO: Add job type filter UI */}
+        <div className="joblist-container">
+            <h2 className="title">Job Board</h2>
+            <select
+                className="job-filter"
+                onChange={(e) => setJobFilter(e.target.value)}
+            >
+                {Object.keys(jobTypes).map((jobTypeId) => {
+                    return (
+                        <option key={jobTypeId} value={jobTypeId}>
+                            {jobTypes[jobTypeId]}
+                        </option>
+                    );
+                })}
+            </select>
             {loading && <div>Loading...</div>}
             {error && <div>Error loading jobs.</div>}
-            <ul>
-                {jobs.map((job) => (
-                    <li key={job.id}>
-                        <strong>{job.title}</strong> ({job.type}) — $
-                        {job.salary}
-                    </li>
-                ))}
-            </ul>
+
+            {console.log('He:', jobs)}
+            <div className="jobs-card-container">
+                {jobs
+                    .filter((job) => job.type === jobFilter)
+                    .map((job) => (
+                        <JobCard job={job} jobTypes={jobTypes} />
+                    ))}
+            </div>
         </div>
     );
 };

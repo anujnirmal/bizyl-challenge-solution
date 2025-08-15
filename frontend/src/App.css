@@ -1,42 +1,79 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* JobList.jsx */
+.joblist-container {
+    display: flex;
+    flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+    font-size: 3rem;
+    align-self: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.job-filter {
+    border-radius: 0.2rem;
+    padding: 0.4rem 1rem;
+    align-self: center;
 }
 
+.jobs-card-container {
+    display: flex;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* JobCard.jsx */
 .card {
-  padding: 2em;
+    box-shadow: rgb(37 37 47 / 94%) 4px 2px 8px 0px;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: #4b4a4a;
+    display: flex;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    flex-direction: column;
 }
 
-.read-the-docs {
-  color: #888;
+.card-title {
+    align-self: start;
+    margin: 0.1rem;
+}
+
+.card-label {
+    border: 1px solid #868585;
+    border-radius: 1rem;
+    align-self: end;
+    padding: 0.2rem 1rem;
+    margin-top: 0;
+}
+
+.card-divider {
+    width: 100%;
+    opacity: 0.4;
+    margin-top: 0;
+}
+
+.card-description {
+    text-align: left;
+    margin-top: 0.1rem;
+}
+
+.card-salary-amount {
+    font-size: 2rem;
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 0.1rem;
+}
+
+.card-salary-amount span {
+    font-size: 1.2rem;
+    vertical-align: middle;
 }
